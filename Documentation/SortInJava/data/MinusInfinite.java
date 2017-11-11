@@ -1,0 +1,38 @@
+/*
+ * Created on 2 avr. 2004
+ */
+package org.nherve.sort.data;
+
+import org.nherve.sort.Statistics;
+
+	public class MinusInfinite implements MonitoredData {
+		private Statistics sts;
+
+		public Statistics getStatistics() {
+			return sts;
+		}
+
+		public void setStatistics(Statistics sts) {
+			this.sts = sts;
+		}
+
+		public int compareTo(Object o) {
+			sts.addCompare();
+			return -1;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		public String toString() {
+			return " minusinfinite";
+		}
+
+		/* (non-Javadoc)
+		 * @see org.nherve.sort.data.MonitoredData#getValueAsInt()
+		 */
+		public int getValueAsInt() {
+			return Integer.MIN_VALUE;
+		}
+
+	}
